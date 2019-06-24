@@ -14,8 +14,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        //UINavigationBar.appearance().barTintColor是改上面那顏色
+        UINavigationBar.appearance().barTintColor = UIColor(red: 216.0/255.0, green: 74.0/255.0, blue: 32.0/255.0, alpha: 1.0)
+        //UINavigationBar.appearance().tintColor是改上一頁按鈕的顏色
+        UINavigationBar.appearance().tintColor = UIColor.white
+        
+        
+        
+        
+        //UINavigationBar上面改掉字顏色和字形和字*但要注意要改掉ViewController內的navigationItem.title = "餐廳"
+        if let barFont = UIFont(name: "Avenir-Light", size: 24.0){
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white,
+                                                                NSAttributedString.Key.font:barFont
+            ]
+        }
+        //這是Type的property
+        //此段是設定bar最上面的訊號欄
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         return true
     }
 
